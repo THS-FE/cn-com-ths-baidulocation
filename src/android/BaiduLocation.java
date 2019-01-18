@@ -23,7 +23,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 
 /**
- * Created by zapzqc on 2015/9/2.
+ * 百度定位插件，默认使用gcj02定位.
  */
 public class BaiduLocation extends CordovaPlugin {
 
@@ -45,16 +45,24 @@ public class BaiduLocation extends CordovaPlugin {
 		initLocation();
 	}
 
+		// private String[] locPerArr = new String[] {
+		// 	Manifest.permission.READ_PHONE_STATE,
+		// 	Manifest.permission.ACCESS_COARSE_LOCATION,
+		// 	Manifest.permission.ACCESS_FINE_LOCATION,
+		// 	Manifest.permission.READ_EXTERNAL_STORAGE,
+		// 	Manifest.permission.WRITE_EXTERNAL_STORAGE,
+		// 	};
+		/**
+	 * 权限列表
+	 */
 		private String[] locPerArr = new String[] {
 			Manifest.permission.READ_PHONE_STATE,
-			Manifest.permission.ACCESS_COARSE_LOCATION,
+			
 			Manifest.permission.ACCESS_FINE_LOCATION,
-			Manifest.permission.READ_EXTERNAL_STORAGE,
-			Manifest.permission.WRITE_EXTERNAL_STORAGE,
+			Manifest.permission.READ_EXTERNAL_STORAGE
 			};
-
-	/**
-	 * 描述: 权限检查，并申请</br> 开发人员：chixin</br> 创建时间：2016-8-5</br>
+     /**
+	 * 检查权限并申请
 	 */
 	private void promtForLocation() {
 		for (int i = 0, len = locPerArr.length; i < len; i++) {

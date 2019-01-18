@@ -16,7 +16,7 @@
     <engines>
         <engine name="cordova-android" version=">=4.0.0-dev"/>
     </engines>
-    <dependency id="cordova-plugin-compat" version="^1.1.0" />
+   <!-- <dependency id="cordova-plugin-compat" version="^1.1.0" />-->
 	<preference name="BD_AK" />
     <js-module src="www/baidulocation.js" name="baidulocation"> <!-- src:js文件所在路径（相对于plugin.xml）-->
         <clobbers target="navigator.baidulocation"/>
