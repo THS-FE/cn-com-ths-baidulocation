@@ -87,9 +87,9 @@ public class BaiduLocation extends CordovaPlugin {
 	}
 
 	/**
-	 * 描述:</br> 开发人员：chixin</br> 创建时间：2016-8-5</br>
+	 * 执行定位操作
 	 * 
-	 * @param action
+	 * @param action 动作类型，开启或者停止定位
 	 */
 	private boolean exeLoc(String action) {
 		if (ACTION_GET_LOCATION_EVENT.equals(action)) {
