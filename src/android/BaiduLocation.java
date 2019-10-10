@@ -133,7 +133,7 @@ public class BaiduLocation extends CordovaPlugin {
 		LocationClientOption option = new LocationClientOption();
 		option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);// 可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
 		option.setCoorType("gcj02");// 可选，默认gcj02，设置返回的定位结果坐标系 bd09ll
-		int span = 1000;// 默认值
+		int span = 1000;// 默认值，如果设置为》=1000秒，后台会一直定位，需注意
 		option.setScanSpan(span);// 可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 		option.setIsNeedAddress(true);// 可选，设置是否需要地址信息，默认不需要
 		option.setOpenGps(true);// 可选，默认false,设置是否使用gps
@@ -197,6 +197,7 @@ public class BaiduLocation extends CordovaPlugin {
 				locationInfo.put("locationdescribe",
 						location.getLocationDescribe());// 位置语义化信息
 				callbackContext.success(locationInfo);
+				mLocationClient.stop();// 这里需注意，如果设置定位间隔大于等于1秒后，注意这里控制停止
 			} catch (JSONException e) {
 				e.printStackTrace();
 				callbackContext.error(e.toString());
